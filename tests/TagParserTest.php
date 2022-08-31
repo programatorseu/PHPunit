@@ -12,18 +12,24 @@ class TagParserTest extends TestCase
     {
         $this->parser = new TagParser();
     }
-    public function test_it_parses_single_tag()
-    {
 
-        $result = $this->parser->parse("React");
-        $expected = ["React"];
+    /**
+     * @dataProvider tagsProvider
+     */
+    public function test_it_parses_tags($input, $expected)
+    {
+        $parser = new TagParser();
+        $result = $parser->parse($input);
         $this->assertSame($expected, $result);
     }
-    public function test_it_parses_list_pipe_seperated()
-    {
 
-        $result = $this->parser->parse("React|Node|Vue");
-        $expected = ["React", "Node", "Vue"];
-        $this->assertSame($expected, $result);
+    public function tagsProvider()
+    {
+        return [
+            ["personal", ["personal"]],
+            ["personal, money, family", ["personal", "money", "family"]],
+            ["personal | money | family", ["personal", "money", "family"]]
+            // ["personal | money | family", ["personal", "money", "family"]]
+        ];
     }
 }
