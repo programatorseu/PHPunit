@@ -57,4 +57,14 @@ class QuizTest extends TestCase
         $this->assertEquals($question1, $quiz->nextQuestion());
         $this->assertEquals($question2, $quiz->nextQuestion());
     }
+
+    /** @test */
+    public function knows_when_completed()
+    {
+        $quiz = new Quiz();
+        $quiz->addQuestion(new Question('Capital of Poland?', "Warsaw"));
+        $this->assertFalse($quiz->isComplete());
+        $quiz->nextQuestion()->answer('Warsaw');
+        $this->assertTrue($quiz->isComplete());
+    }
 }
