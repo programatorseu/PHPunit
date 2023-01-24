@@ -6,7 +6,9 @@ terminology differs from group to group :):)
 
 folder structure :
 
- ![image-20210506101146351](/Users/piotrsadowski/Library/Application Support/typora-user-images/image-20210506101146351.png)
+``` mkdir src tests
+ composer init
+ ````
 
 
 
@@ -24,7 +26,7 @@ composer.json :
     "require": {},
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "DevPiotr\\": "src/"
         }
     },
     "autload-dev": {
@@ -33,6 +35,7 @@ composer.json :
         }
     }
 }
+
 
 ```
 
@@ -56,10 +59,6 @@ create TagParserTeset
 
 2. call parse method on class (pass arguments)
 3. what do we expect to return ? - array - **we are going to use assertion**
-
-
-
-![image-20210519162843246](/Users/piotrsadowski/Library/Application Support/typora-user-images/image-20210519162843246.png)
 
 **write at least amount of code to pass a test**
 
