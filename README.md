@@ -6,9 +6,10 @@ terminology differs from group to group :):)
 
 folder structure :
 
-``` mkdir src tests
+``` 
+ mkdir src tests
  composer init
- ````
+```
 
 
 
